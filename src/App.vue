@@ -4,6 +4,10 @@
   </div>
 </template>
 
+<script>
+export default {};
+</script>
+
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Philosopher:700&subset=cyrillic");
 @import "./assets/normalize.scss";
@@ -23,6 +27,7 @@ body {
 .logo {
   display: block;
   margin: 0 auto;
+  pointer-events: none;
 }
 #nav {
   padding: 30px;

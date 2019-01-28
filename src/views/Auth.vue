@@ -7,7 +7,9 @@
       @onchange="updateEmailValid"
       label="Email:"
     />
-    <button class="btn next" :disabled="!emailValid">Продолжить!</button>
+    <button class="btn next" :disabled="!emailValid" @click="nextStep">
+      Next!
+    </button>
   </div>
 </template>
 
@@ -27,6 +29,20 @@ export default {
   methods: {
     updateEmailValid() {
       this.emailValid = this.$refs.email && this.$refs.email.valid;
+    },
+    nextStep() {
+      this.$store
+        .dispatch("checkEmail", {
+          name: "email",
+          value: this.$refs.email.inputValue
+        })
+        .then(exist => {
+          if (exist) {
+            this.$router.push({ name: "login" });
+          } else {
+            this.$router.push({ name: "registration" });
+          }
+        });
     }
   }
 };
@@ -34,11 +50,6 @@ export default {
 
 <style lang="scss" scoped>
 .auth {
-  width: 350px;
   margin: 70px auto 0;
-  .next {
-    margin-top: 30px;
-    font-size: 20px;
-  }
 }
 </style>

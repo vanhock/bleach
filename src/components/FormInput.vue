@@ -3,14 +3,12 @@
     <div class="label">
       <label :for="`input-${name}`">{{ label }}</label>
     </div>
-    <div class="description">{{ description }}</div>
     <div class="input">
       <div class="validation-message" v-if="!valid">
         {{ validationMessage }}
       </div>
       <input
         :class="{ valid: changed && valid, invalid: changed && !valid }"
-        size="1"
         v-model="inputValue"
         :type="type"
         :id="`input-${name}`"
@@ -18,6 +16,7 @@
         :placeholder="placeholder"
         @keyup="$emit('onchange')"
         v-bind="$props"
+        :disabled="disabled"
       />
     </div>
   </div>
@@ -45,25 +44,22 @@ export default {
 <style lang="scss" scoped>
 .form-item-general {
   display: flex;
-  justify-content: center;
-  $input-width: 230px;
+  align-items: flex-end;
+  font-size: 25px;
+  @include clearfix();
   .input {
+    width: 100%;
+    float: left;
     input {
-      resize: horizontal;
-      width: $input-width;
+      width: calc(100% - 20px);
       padding: 3px 10px;
       border: 0;
       border-bottom: 2px solid;
       border-bottom-color: $color-b5;
       background-color: transparent;
-      font-size: 25px;
       color: #fff;
       &:focus {
         border-bottom-color: $color-w2;
-        min-width: $input-width;
-      }
-      &:active {
-        width: auto;
       }
       &.valid {
         border-bottom-color: $color-green;
@@ -76,10 +72,11 @@ export default {
   .label {
     display: flex;
     align-items: flex-end;
+    text-align: left;
     color: #fff;
     margin-right: 5px;
-    margin-bottom: -2px;
-    font-size: 30px;
+    margin-bottom: 3px;
+    float: left;
   }
 }
 </style>

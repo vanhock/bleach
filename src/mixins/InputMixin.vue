@@ -23,6 +23,10 @@ export default {
       type: [String, Number],
       default: ""
     },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     description: String,
     placeholder: String,
     validationRule: String,

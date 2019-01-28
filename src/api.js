@@ -3,12 +3,12 @@ function mockServer(data) {
     return data();
   }, 700);
 }
-export const checkEmail = ({ email }, cb) => {
+export function checkEmail({ email }, cb) {
   mockServer(() => {
     if (email === "example@yandex.ru") {
-      cb({ exist: true });
+      cb(true);
     } else {
-      cb({ exist: false });
+      cb(false);
     }
   });
 };
