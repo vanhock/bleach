@@ -3,7 +3,7 @@
     <router-link
       tag="img"
       :to="{ name: 'auth' }"
-      src="/img/logo.png"
+      src="./img/logo.png"
       class="logo"
       exact
     />

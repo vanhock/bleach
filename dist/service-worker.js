@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.ecd831789ccefb6dc9da785e74ab82f1.js"
+  "/precache-manifest.bd827eb1da42e5080d57c8eb50315ade.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "bleach"});
