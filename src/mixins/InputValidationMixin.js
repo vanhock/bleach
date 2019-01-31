@@ -15,13 +15,7 @@ export default {
     valid() {
       const rule =
         this.rule || (this.validationRule && new RegExp(this.validationRule));
-      if (
-        !this.inputValue ||
-        this.inputValue === "" ||
-        (this.inputValue &&
-          this.value &&
-          this.inputValue.toString() === this.value.toString())
-      ) {
+      if (!this.inputValue || this.inputValue === "") {
         return false;
       }
       return rule

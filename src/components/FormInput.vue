@@ -52,10 +52,10 @@ export default {
     float: left;
     input {
       width: calc(100% - 20px);
-      padding: 3px 10px;
+      padding: 3px 10px 3px 0;
       border: 0;
       border-bottom: 2px solid;
-      border-bottom-color: $color-b5;
+      border-bottom-color: $color-b3;
       background-color: transparent;
       color: #fff;
       &:focus {
@@ -67,15 +67,19 @@ export default {
       &.invalid {
         border-bottom-color: $color-w1;
       }
+      &[disabled] {
+        border-color: transparent;
+      }
     }
   }
   .label {
     display: flex;
     align-items: flex-end;
     text-align: left;
+    width: 190px;
     color: #fff;
     margin-right: 5px;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
     float: left;
   }
 }

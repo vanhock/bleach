@@ -1,7 +1,7 @@
 function mockServer(data) {
   setTimeout(() => {
     return data();
-  }, 700);
+  }, 200);
 }
 export function checkEmail({ email }, cb) {
   mockServer(() => {
@@ -11,4 +11,4 @@ export function checkEmail({ email }, cb) {
       cb(false);
     }
   });
-};
+}

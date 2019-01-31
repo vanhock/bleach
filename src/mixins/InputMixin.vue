@@ -4,6 +4,10 @@ export default {
     /** Set value from prop **/
     this.resetValue();
   },
+  beforeRouteUpdate(from, to, next) {
+    this.resetValue();
+    next(true);
+  },
   data: () => ({
     inputValue: ""
   }),

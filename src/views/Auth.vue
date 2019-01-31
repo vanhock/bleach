@@ -1,13 +1,14 @@
 <template>
-  <div class="auth">
+  <div>
     <form-input
       ref="email"
       name="email"
+      :value="f.email"
       placeholder="example@mail.com"
-      @onchange="updateEmailValid"
+      @onchange="updateFormValid"
       label="Email:"
     />
-    <button class="btn next" :disabled="!emailValid" @click="nextStep">
+    <button class="btn next" :disabled="formInvalid" @click="nextStep">
       Next!
     </button>
   </div>
@@ -15,21 +16,17 @@
 
 <script>
 import FormInput from "../components/FormInput";
+import AuthMixin from "../mixins/AuthMixin";
 export default {
   name: "Auth",
   components: { FormInput },
+  mixins: [AuthMixin],
   mounted() {
     this.$nextTick(() => {
       document.getElementById("input-email").focus();
     });
   },
-  data: () => ({
-    emailValid: false
-  }),
   methods: {
-    updateEmailValid() {
-      this.emailValid = this.$refs.email && this.$refs.email.valid;
-    },
     nextStep() {
       this.$store
         .dispatch("checkEmail", {
@@ -48,8 +45,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .auth {
   margin: 70px auto 0;
+  .form-item-general {
+    .label {
+      width: auto;
+    }
+    .input input {
+      padding: 3px 10px;
+    }
+  }
 }
 </style>

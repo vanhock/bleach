@@ -27,7 +27,12 @@ body {
 .logo {
   display: block;
   margin: 0 auto;
-  pointer-events: none;
+  &.router-link-exact-active {
+    pointer-events: none;
+  }
+  &:not(.router-link-exact-active) {
+    cursor: pointer;
+  }
 }
 #nav {
   padding: 30px;
