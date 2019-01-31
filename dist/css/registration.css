@@ -1,0 +1,1 @@
+.registration .next{will-change:transform}.registration .next:not([disabled]){-webkit-transform:scale(1.24);transform:scale(1.24);-webkit-transition:-webkit-transform .1s linear;transition:-webkit-transform .1s linear;transition:transform .1s linear;transition:transform .1s linear,-webkit-transform .1s linear}
